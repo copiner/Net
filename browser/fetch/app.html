@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Node JS</title>
+</head>
+<body>
+<p>Node JS</p>
+<script>
+//post
+var url_anna = "http://127.0.0.1:3000/anna";
+var options={
+  method:"post",
+  headers: {
+    'Accept' : 'application/json',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    name: 'Francis',
+    age: "25"
+  }),
+  credentials:'include'
+}
+
+fetch(url_anna, options).then(response=>{
+  response.json();
+}).then(data=>{
+  console.log(data);
+})
+.catch(err=>console.log("Fetch came across :"+ err));
+
+//get
+var url_rose = "http://127.0.0.1:3000/rose?id=001&info=noob";
+fetch(url_rose)
+.then(response=>{
+  response.json();
+}).then(data=>{
+  console.log(data);
+})
+.catch(err=>console.log("Fetch came across :"+ err));
+
+</script>
+</body>
+</html>

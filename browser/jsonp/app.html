@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JSONP</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<p>JSONP</p>
+<script>
+/*
+由于浏览器同源策略的限制，非同源下的请求，都会产生跨域问题
+首先，不知道大家有没有注意，不管是我们的script标签的src还是img标签的src，或者说link标签的href他们没有被通源策略所限制，
+比如我们有可能使用一个网络上的图片，就可以请求得到
+*/
+//服务端把数据通过函数执行传参的方式实现数据传递
+function showPerson(data){
+    console.log("name: "+data.name+","+"age: "+data.age)
+}
+</script>
+<script src="http://127.0.0.1:3000?func=showPerson"></script>
+</body>
+</html>
